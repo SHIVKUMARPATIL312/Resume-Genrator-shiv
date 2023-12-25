@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>resume Genrator</title>
+    </head>
+</head>
+<body>
+    <div class="container" id="cv-form">
+        <h1 class="text_center" style="margin-left: 550px;">Resume Genrator</h1>
+        <p style="margin-left: 550px;">code with durgesh</p>
+
+        <div class="row">
+              <div class="col-md-6 mt-2">
+                <!-- first -->
+                <h2>personal information</h2>
+
+                <div class="form-group mt-2" >
+                    <label for="nameField">Your Name</label>
+                    <input type="text" id="nameField" placeholder="Enter here........" class="form-control"></input> 
+                </div>
+
+                <div class="form-group">
+                    <label for="contactfeild">Contact number</label>
+                    <input type="text" id="contactfeild" placeholder="Enter here........" class="form-control"></input>   
+                </div>
+
+                <div class="form-group" >
+                        <label for="addFeild">Adress</label>
+                        <textarea rows="5" type="text" id="addFeild" placeholder="Enter here........" class="form-control">
+                    </textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="photo">Upload your profile picture</label>
+                    <input type="file" id="photo" class="form-control">
+                </div>
+
+                <p class="text-secondary my-3">Enter important information</p>
+
+              <div class="form-group mt-2">
+                <h2>personal information</h2>
+
+                <div class="form-group mt-2" >
+                    <label for="InstagramField">faceBook link </label>
+                    <input type="text" id="InstagramField" placeholder="Enter here........" class="form-control"></input> 
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="LinkedLink">LinkedIn</label>
+                    <input type="text" id="LinkedLink" placeholder="Enter here........" class="form-control"></input>
+                </div>
+
+                <div class="form-group mt-2">
+                        <label for="Whatsapp">Whatsapp no:</label>
+                        <input type="text"  id="Whatsapp" placeholder="Enter here........" class="form-control"><br><br>
+                </input>
+                </div>
+              </div>
+              </div>
+
+
+    <div class="col-md-6">
+        <h2>professional information</h2>
+       
+
+       <div class="form-group mt-2" >
+        <label for="ObjFeild">Objective</label>
+        <textarea rows="3" id="ObjFeild" placeholder="Enter here........" class="form-control weField">
+    </textarea>     
+    </div>
+
+    <div class="form-group mt-2" id="aq">
+        <label for="">Aquadmic Qualification</label>
+        <textarea rows="3" placeholder="Enter here........" class="form-control eqField">
+    </textarea> 
+    
+    <div class="container  mt-2"  id="eqAddButton">
+        <button onclick="addNewEducationField()"  class="btn btn-primary btn-sm">Add</button>
+    </div>
+    </div>
+
+    <div class="form-group mt-2" id="we" >
+        <label for="WorkExperience">Work Experense</label>
+        <textarea type="text" rows="3" id="WorkExperience" placeholder="Enter here........" class="form-control weField">
+    </textarea> 
+    
+    <div class="container  mt-2" id="weAddButton" >
+        <button onclick="addNewWorkExperience()" class="btn btn-primary btn-sm">Add</button>
+    </div>
+    </div>
+   
+    
+</div>  
+</div>
+
+<div class="container text-center mt-3">
+    <button onclick="genrateCV()" class="btn btn-primary btn-lg">Generate CV</button>
+</div>  
+       
+      </div>
+
+
+      <div class="container" id="cv-template">
+        <div class="row">
+
+            <div class="col-nd-4 text-center py-5 mt-4  background shiv" >
+                <!-- first column -->
+                <img id="image2" src="data:image/png;base64,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" 
+                class="img-fluid myimg" 
+                >
+                   <!-- 1st part of 1st section -->
+                <div class="container" >
+                    <p id="name">aman kumar tiwari</p>
+                    <p id="contact">43358003</p>
+                    <p id="City">karad india</p>
+                <hr>
+                  <!-- 2nd part of 1st section -->
+                  <p><a id="facebook" href="https://www.facebook.com/">This is our facebook link</a></p>
+                  <p><a id="techno" href="https://www.techmahindra.com/en-in/?f=4173355842">tech mahendra</a></p>
+                  <p><a id="techMahendra" href="https://www.techmahindra.com/en-in/?f=4173355842">This is our facebook link</a></p>
+                </div>  
+                   
+            </div> 
+            <div class="col-nd-8 py-4 shiv2">
+                <h1 class="text-center" style="font-weight: 980" id="namet2">Aman Kumar Tiwari</h1>
+
+                <div class="card ">
+                    <div class="card-header  background">
+                        <h3>Objective</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="ObjectT2" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus alias dolorum eligendi consectetur earum libero corrupti fugit quae impedit ratione.</p>
+                    </div>
+                   
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header  background">
+                        <h3>educational details</h3>
+                    </div>
+                    <div class="card-body ">
+                        <ul id="educationt2">
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, quibusdam!</li> 
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, quibusdam!</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, quibusdam!</li>
+
+                        </ul>
+                        </div> 
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header  background">
+                        <h3>WorkExperience details</h3>
+                    </div>
+                    <div class="card-body ">
+                        <ul id="Wokrexperiset2">
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, quibusdam!</li> 
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, quibusdam!</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, quibusdam!</li>
+
+                        </ul>
+                        </div> 
+                </div>
+
+
+                <div class="container mt-3 text-center">
+
+                    <button class="btn background" onclick="printCV()">
+                        Print cv
+                    </button>
+                </container>
+            </div>  
+              </div>
+      </div>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="working.js"></script>
+</body>
+</html>
